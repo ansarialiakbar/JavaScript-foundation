@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move the Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #f0f0f0; /* Light background color */
+        }
+        #movingImage {
+            position: absolute; /* Allows positioning based on top and left */
+            width: 100px; /* Set the width of the image */
+            height: 100px; /* Set the height of the image */
+        }
+    </style>
+</head>
+<body>
+
+    <img id="movingImage" src="https://via.placeholder.com/100" alt="Moveable Image">
+
+    <script>
+        // Get the image element
+        const image = document.getElementById('movingImage');
+
+        // Initial position
+        let posX = 0;
+        let posY = 0;
+
+        // Function to move the image based on key press
+        function moveImage(event) {
+            switch (event.key) {
+                case 'ArrowUp':
+                    posY -= 10; // Move up
+                    break;
+                case 'ArrowDown':
+                    posY += 10; // Move down
+                    break;
+                case 'ArrowLeft':
+                    posX -= 10; // Move left
+                    break;
+                case 'ArrowRight':
+                    posX += 10; // Move right
+                    break;
+            }
+
+            // Update the position of the image
+            image.style.left = posX + 'px';
+            image.style.top = posY + 'px';
+        }
+
+        // Add event listener for keydown events
+        window.addEventListener('keydown', moveImage);
+    </script>
+
+</body>
+</html>

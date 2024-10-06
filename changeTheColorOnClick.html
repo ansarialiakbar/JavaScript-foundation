@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s; /* Smooth transition for background color */
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s; /* Smooth transition for button color */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <button id="colorButton">Change Background Color</button>
+
+    <script>
+        // Array of colors
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F33FF5', '#FFBD33', '#75FF33'];
+
+        // Function to change background color
+        function changeBackgroundColor() {
+            // Generate a random index
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            // Set the background color to the randomly selected color
+            document.body.style.backgroundColor = colors[randomIndex];
+        }
+
+        // Add event listener to the button
+        document.getElementById('colorButton').addEventListener('click', changeBackgroundColor);
+    </script>
+
+</body>
+</html>

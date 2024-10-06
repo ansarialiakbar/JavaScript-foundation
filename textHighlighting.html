@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Highlighting Example</h1>
+    <p id="text">This is an example paragraph where certain words will be highlighted based on their length. Words like extraordinary, demonstration, and characteristic will be highlighted as they have more than eight characters.</p>
+    <button id="highlightButton">Highlight Words</button>
+
+    <script>
+        // Function to highlight words longer than 8 characters
+        function highlightLongWords() {
+            // Get the paragraph element
+            const paragraph = document.getElementById('text');
+            // Split the paragraph text into words
+            const words = paragraph.innerText.split(' ');
+            // Map over the words and wrap those longer than 8 characters in a span
+            const highlightedWords = words.map(word => {
+                return word.length > 8 ? `<span class="highlight">${word}</span>` : word;
+            });
+            // Join the words back together and set it as the inner HTML of the paragraph
+            paragraph.innerHTML = highlightedWords.join(' ');
+        }
+
+        // Add event listener to the button
+        document.getElementById('highlightButton').addEventListener('click', highlightLongWords);
+    </script>
+
+</body>
+</html>
